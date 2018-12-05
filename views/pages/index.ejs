@@ -19,13 +19,19 @@
         <section id="Instructions">
           <h2>Instructions</h2>
           <p>Here is some text to tell you what to do with the inputs below"</p>
-          <form>
+
+          <form action="/results" method="POST">
             <fieldset>
-              Choose a Date: <input type="date">
-              Choose a Celestial Body: <select><option value="Mars">Mars</option></select>
+              Choose a Date: <input type="date" value="date">
+              Choose a Celestial Body: 
+              <select name="celestialBody">
+                <option value="mars">       Mars</option>
+                <option value="jupiter"> Jupiter</option>
+              </select>
             </fieldset>
-            <button>Fetch!</button>
+            <button type="submit">Fetch!</button>
           </form>
+
         </section>
         <footer>
             <%- include('../layout/footer') %>
