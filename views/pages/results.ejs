@@ -3,45 +3,35 @@
 <html>
 
   <head>
-    <title></title>
-        <link rel="stylesheet" href="/styles/reset.css">
-        <link rel="stylesheet" href="/styles/icons.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/layout.css">
-        <link rel="stylesheet" href="/styles/modules.css">
+      <%- include('../layout/head') %>
   </head>
-  <header>
-      <nav>
-          <ul>
-            <li><a href=""><img class="logoImg" src="" alt="Logo"></a></li>
-            <li><a href="/pages/about">About Us</a></li>
-          </ul>
-        </nav>
-      </header>
   <body>
-    <section id="hero-img">
-      <img id="hero-img" src="" alt="" title=""/> <!--this image will come from an API?-->
-    </section>
-    <main>
-      <section>
-        <form>
-          <fieldset>
-            Distance: <!--this will auto fill from API?--> <input type="number"> <!--option tag instead?-->
-            Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
-            <ul> <!--will add in maybe an link that will fill in each one?-->
-              <li>Fun Fact 1</li>
-              <li>Fun Fact 2</li>
-              <li>Fun Fact 3</li>
-              <li>Fun Fact 4</li>
-              <li>Fun Fact 5</li>
-            </ul> 
-          </fieldset>
-        </form>
+    <header>
+      <%- include('../layout/header') %>
+    </header>
+      <section id="hero-img">
+        <img id="hero-img" src="" alt="" title=""/> <!--this image will come from an API?-->
       </section>
-    </main>
+      <main>
+        <section>
+          <form>
+            <fieldset>
+              Distance: <!--this will auto fill from API?--> <input type="number"> <!--option tag instead?-->
+              Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
+              <ul> <!--will add in maybe an link that will fill in each one?-->
+                <li>Fun Fact 1</li>
+                <li>Fun Fact 2</li>
+                <li>Fun Fact 3</li>
+                <li>Fun Fact 4</li>
+                <li>Fun Fact 5</li>
+              </ul> 
+            </fieldset>
+          </form>
+        </section>
+      </main>
   </body>
   <footer>
-    <!--this is where our copyright will go-->
+      <%- include('../layout/footer') %>
   </footer>
 
 </html>
