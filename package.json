@@ -1,0 +1,28 @@
+{
+  "name": "space_rover",
+  "version": "1.0.0",
+  "description": "## Project Info",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcherewaty/space_rover.git"
+  },
+  "author": "Heather Cherewaty, Michael Jahns, Becca Lee, and Siobhan Niess",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcherewaty/space_rover/issues"
+  },
+  "homepage": "https://github.com/hcherewaty/space_rover#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "pg": "^7.7.1",
+    "superagent": "^4.0.0"
+  }
+}
