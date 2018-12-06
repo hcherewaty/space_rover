@@ -23,58 +23,11 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
-app.post('/results', getResults);
-
-app.post('/results', searchQuery);
+app.post('/results', calculateDistance);
 
 app.get('/about', function (request, response) {
   response.render('pages/about');
 });
-
-function Triangulate(location){
-  this.Xposition = location[0];
-  this.Yposition = location[1];
-  this.Zposition = location[2];
-}
-function searchQuery(request, response){
-  getStartPoint(request, response)
-  getEndPoint(request, response)
-}
-function getStartPoint(request, response){
-  let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
-
-  return superagent.get(url)
-    .then(result => {
-      const startPoint = new Triangulate(result.body.results.earth[0])
-      console.log('Earth')
-      console.log(startPoint);
-    })
-    .catch(error => handleError(error));
-}
-function getEndPoint(request, response){
-  let temp = request.body.celestialBody.toLowerCase()
-  console.log(request.body);
-  let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.date}&bodies=${request.body.celestialBody}`
-
-  return superagent.get(url)
-    .then(result => {
-      const endPoint = new Triangulate(result.body.results[temp][0])
-      console.log(temp)
-      console.log(endPoint)
-    })
-    .catch(error => handleError(error));
-}
-function calculateDistance(destination, startPoint, unit){
-  const totalDistance = 0;
-  if(unit === 'km'){
-    totalDistance = SQRT(((destination.X - startPoint.X)^2 + (destination.Y - startPoint.Y)^2 + (destination.Y - startPoint.Z)^2))
-  }
-}
-function handleError (error, response) {
-  console.error(error)
-  app.get('/error')
-  response.render('pages/error', {error: error});
-}
 
 function getImageOfTheDay(request, response) {
   let url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_IOD_API_KEY}`
@@ -83,12 +36,53 @@ function getImageOfTheDay(request, response) {
     .then(result => response.render('pages/', {heroImage: result.body.url}));
 }
 
-function getResults (request, response) {
-  let url = `https://images-api.nasa.gov/search?q=${request.body.celestialBody}`;
-  console.log("Here I am", request.body.celestialBody);
-  superagent.get(url)
-            .then(result => {
-              const imageURL = result.body.collection.items[0].links[0].href;
-      response.render('pages/results', {planetImage: imageURL});
-  });
- }
+function Triangulate(location){
+  this.X = location[0];
+  this.Y = location[1];
+  this.Z = location[2];
+}
+// function searchQuery(request, response){
+//   const first = getStartPoint(request, response)
+//   const second = getEndPoint(request, response)
+//   calculateDistance(first, second)
+// }
+function getStartPoint(request, response){
+  let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
+
+  return superagent.get(url)
+    .then(result => {
+      const startPoint = new Triangulate(result.body.results.earth[0])
+      return startPoint
+    })
+    .catch(error => handleError(error));
+}
+function getEndPoint(request, response){
+  let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.date}&bodies=${request.body.celestialBody}`
+
+  return superagent.get(url)
+    .then(result => {
+      const endPoint = new Triangulate(result.body.results[request.body.celestialBody.toLowerCase()][0])
+      return endPoint
+    })
+    .catch(error => handleError(error));
+}
+async function calculateDistance(request, response){
+  const startPoint = await getStartPoint(request, response);
+  const endPoint = await getEndPoint(request, response);
+  let deltaX = (endPoint.X - startPoint.X)
+  console.log('deltaX  ' +deltaX)
+  let deltaY = (endPoint.Y - startPoint.X)
+  console.log('deltaY  ' +deltaY)
+  let deltaZ = (endPoint.Z - startPoint.Z)
+  console.log('deltaZ  ' +deltaZ)
+  let temp = Math.pow(deltaX,2) + Math.pow(deltaY,2) + Math.pow(deltaZ,2)
+  console.log('All squared values  ' + temp)
+  let totalDistance = Math.sqrt(temp)
+  console.log(totalDistance)
+}
+
+function handleError (error, response) {
+  app.get('/error')
+  response.render('pages/error', {error: error});
+}
+
