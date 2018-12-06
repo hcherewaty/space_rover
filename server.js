@@ -21,18 +21,13 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
+app.get('/', getImageOfTheDay);
 
 app.post('/results', searchQuery);
 
 app.get('/about', function (request, response) {
   response.render('pages/about');
 });
-
-
-
 
 function Triangulate(location){
   this.Xposition = location[0];
@@ -44,7 +39,7 @@ function searchQuery(request, response){
   getEndPoint(request, response)
 }
 function getStartPoint(request, response){
-  let url = `http://www.astro-phys.com/api/de406/states?${request.body.Date}&bodies=earth`
+  let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
 
   return superagent.get(url)
     .then(result => {
@@ -56,7 +51,8 @@ function getStartPoint(request, response){
 }
 function getEndPoint(request, response){
   let temp = request.body.celestialBody.toLowerCase()
-  let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.Date}&bodies=${request.body.celestialBody}`
+  console.log(request.body);
+  let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.date}&bodies=${request.body.celestialBody}`
 
   return superagent.get(url)
     .then(result => {
@@ -76,4 +72,11 @@ function handleError (error, response) {
   console.error(error)
   app.get('/error')
   response.render('pages/error', {error: error});
+}
+
+function getImageOfTheDay(request, response) {
+  let url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_IOD_API_KEY}`
+
+  superagent.get(url)
+    .then(result => response.render('pages/', {heroImage: result.body.url}));
 }
