@@ -23,6 +23,8 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
+app.post('/results', getResults);
+
 app.post('/results', searchQuery);
 
 app.get('/about', function (request, response) {
@@ -80,3 +82,13 @@ function getImageOfTheDay(request, response) {
   superagent.get(url)
     .then(result => response.render('pages/', {heroImage: result.body.url}));
 }
+
+function getResults (request, response) {
+  let url = `https://images-api.nasa.gov/search?q=${request.body.celestialBody}`;
+  console.log("Here I am", request.body.celestialBody);
+  superagent.get(url)
+            .then(result => {
+              const imageURL = result.body.collection.items[0].links[0].href;
+      response.render('pages/results', {planetImage: imageURL});
+  });
+ }
