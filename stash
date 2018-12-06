@@ -1,0 +1,11 @@
+app.post('/results', getResults);
+
+function getResults (request, response) {
+  let url = `https://images-api.nasa.gov/search?q=${request.body.celestialBody}`;
+  console.log("Here I am", request.body.celestialBody);
+  superagent.get(url)
+            .then(result => {
+              const imageURL = result.body.collection.items[0].links[0].href;
+      response.render('pages/results', {planetImage: imageURL});
+  });
+ }
