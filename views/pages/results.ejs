@@ -15,7 +15,7 @@
           <input type="hidden" name="_method" value="put">
           <input type="hidden" name="distance" value="<%= resultsView %>">
             <fieldset>
-              Distance: <span id="distance"><%= resultsView.km %></span>
+              Distance: <span id="distance"><%= resultsView[0] %></span>
               <select id="units"></select>
               <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
                 <option value="km">Kilometers</option>
@@ -34,7 +34,11 @@
               </ul> 
             </fieldset>
           </form>
-          <p id="APIinfo"><%= resultsView.km %></p>
+          <p id="kilometers"><%= resultsView[0] %></p>
+          <p id="meters"><%= resultsView[1] %></p>
+          <p id="miles"><%= resultsView[2] %></p>
+          <p id="lightyears"><%= resultsView[3].toPrecision(2) %></p>
+          <p id="atlas"><%= resultsView[4] %></p>
         </section>
       </main>
   </body>
