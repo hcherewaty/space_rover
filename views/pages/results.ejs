@@ -10,31 +10,16 @@
       <%- include('../layout/header') %>
     </header>
       <main>
+        
+             
+
+
+
         <section>
-          <form action="/results" method="post">
-          <input type="hidden" name="_method" value="put">
-          <input type="hidden" name="distance" value="<%= resultsView %>">
-            <fieldset>
-              Distance: <span id="distance"><%= resultsView.km %></span>
-              <select id="units"></select>
-              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
-                <option value="km">Kilometers</option>
-                <option value="m">Meters</option>
-                <option value="mi">Miles</option>
-                <option value="au">Light Years</option>
-                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
-              </select> -->
-              Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
-              <ul> <!--will add in maybe an link that will fill in each one?-->
-                <li>Fun Fact 1</li>
-                <li>Fun Fact 2</li>
-                <li>Fun Fact 3</li>
-                <li>Fun Fact 4</li>
-                <li>Fun Fact 5</li>
-              </ul> 
-            </fieldset>
-          </form>
-          <p id="APIinfo"><%= resultsView.km %></p>
+          <% resultPlanet.forEach(planet => { %>
+            <h4><%= planet.name %></h4>
+            <img src=<%= planet.image %>>
+          <% })  %>
         </section>
       </main>
   </body>
