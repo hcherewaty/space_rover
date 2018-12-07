@@ -134,4 +134,3 @@ function handleError (error, response) {
   app.get('/error')
   response.render('pages/error', {error: error});
 }
-

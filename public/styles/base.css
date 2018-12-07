@@ -195,6 +195,10 @@ a:hover {
     transition: 0.3s;
 }
 
+.hidden {
+    display: none;
+}
+
 /* tablet view */
 @media screen and (max-width: 800px) and (min-width: 500px){
     #hero img {
