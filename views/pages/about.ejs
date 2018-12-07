@@ -10,10 +10,18 @@
         </header>
         <main>
             <!-- template -->
-            <section>
-                <img src=https://via.placeholder.com/150x150?text=who+is+that>
-                <h4> Who dis </h4>
-                <p> srs doe who is this? they seem cool.</p>
+            <section class=TemporaryFix>
+                <% resultAbout.forEach(dev => { %>
+                <img src=<%= dev.image_url %> alt="Brave astronaut programmers standing stoic staring unblinking at a distant sun">
+                <h4><%= dev.name %></h4>
+                <p><%= dev.bio %></p>
+                <ul>
+                    <li><a target="_blank" href=" <%= dev.github %> ">  <i class="fab fa-github"></i></a></li>
+                    <li><a target="_blank" href=" <%= dev.linkedin %> "><i class="fab fa-linkedin"></i></a></li>
+                    <li><a target="_blank" href=" <%= dev.twitter %> "> <i class="fab fa-twitter"></i></a></li>
+                    <li><a target="_blank" href=" <%= dev.email %> ">   <i class="fas fa-envelope"></i></a></li>
+                </ul>
+                <% }) %>
             </section>
         </main>
         <footer>
