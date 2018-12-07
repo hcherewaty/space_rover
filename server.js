@@ -4,6 +4,7 @@ const pg = require('pg');
 const cors = require('cors');
 const express = require('express');
 const superagent = require('superagent');
+const methodOverride = require('method-override');
 
 require('dotenv').config();
 
@@ -12,6 +13,17 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.use(cors());
+
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    // look in urlencoded POST bodies and delete it
+    let method = request.body._method;
+    console.log('OVERRIDE THE METHOD as a ' +method)
+    delete request.body._method;
+    return method;
+  }
+ })
+ )
 
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
@@ -23,11 +35,13 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
-app.post('/results', calculateDistance);
+app.post('/results', searchQuery);
 
 app.get('/about', function (request, response) {
   response.render('pages/about');
 });
+
+app.put('/results', updateResults);
 
 function getImageOfTheDay(request, response) {
   let url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_IOD_API_KEY}`
@@ -41,11 +55,15 @@ function Triangulate(location){
   this.Y = location[1];
   this.Z = location[2];
 }
-// function searchQuery(request, response){
-//   const first = getStartPoint(request, response)
-//   const second = getEndPoint(request, response)
-//   calculateDistance(first, second)
-// }
+function searchQuery(request, response){
+  calculateDistance(request, response)
+  .then(results => {
+    const measurement = new Conversion(results)
+    return measurement
+  })
+    .then(measurement => response.render('pages/results', {resultsView: measurement}))
+}
+
 function getStartPoint(request, response){
   let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
 
@@ -70,16 +88,30 @@ async function calculateDistance(request, response){
   const startPoint = await getStartPoint(request, response);
   const endPoint = await getEndPoint(request, response);
   let deltaX = (endPoint.X - startPoint.X)
-  console.log('deltaX  ' +deltaX)
   let deltaY = (endPoint.Y - startPoint.X)
-  console.log('deltaY  ' +deltaY)
   let deltaZ = (endPoint.Z - startPoint.Z)
-  console.log('deltaZ  ' +deltaZ)
   let temp = Math.pow(deltaX,2) + Math.pow(deltaY,2) + Math.pow(deltaZ,2)
-  console.log('All squared values  ' + temp)
-  let totalDistance = Math.sqrt(temp)
-  console.log(totalDistance)
+  let totalDistance = Math.floor(Math.sqrt(temp))
+  return totalDistance;
 }
+
+function updateResults(request, response) {
+  console.log(request.body);
+  if (request.body.units === 'mi') {
+    Conversion.active = Conversion.mi;
+    console.log(Conversion.active);
+  }
+}
+
+const Conversion = function(measurement) {
+  this.km = measurement;
+  this.m = measurement * 1000;
+  this.mi = measurement * 0.621371;
+  this.au = measurement * 0.0000000000001057;
+  this.atlas = (measurement * 39370.1) / 60;
+}
+
+
 
 function handleError (error, response) {
   app.get('/error')
