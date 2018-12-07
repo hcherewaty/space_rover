@@ -25,10 +25,8 @@ app.get('/', getImageOfTheDay);
 
 app.post('/results', calculateDistance);
 
-app.get('/about', function (request, response) {
-  response.render('pages/about');
-});
-
+app.get('/about', getDevs);
+  
 function getImageOfTheDay(request, response) {
   let url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_IOD_API_KEY}`
 
@@ -80,7 +78,13 @@ async function calculateDistance(request, response){
   let totalDistance = Math.sqrt(temp)
   console.log(totalDistance)
 }
+function getDevs(request, response){
+  let SQL = 'SELECT * FROM devs;'
 
+  return client.query(SQL)
+    .then(result => response.render('pages/about', {resultAbout: result.rows}))
+    .catch(handleError);
+}
 function handleError (error, response) {
   app.get('/error')
   response.render('pages/error', {error: error});
