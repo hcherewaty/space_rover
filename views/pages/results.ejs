@@ -17,14 +17,8 @@
             <fieldset>
               Distance: <span id="distance"><%= resultsView[0] %></span>
               <select id="units"></select>
-              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
-                <option value="km">Kilometers</option>
-                <option value="m">Meters</option>
-                <option value="mi">Miles</option>
-                <option value="au">Light Years</option>
-                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
-              </select> -->
-              Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
+              Travel Time:  <span id="time"> <%= resultsView[5] %> </span>
+              <select id="speedmenu"></select>
               <ul> <!--will add in maybe an link that will fill in each one?-->
                 <li>Fun Fact 1</li>
                 <li>Fun Fact 2</li>
@@ -39,6 +33,11 @@
           <p id="miles"><%= resultsView[2] %></p>
           <p id="lightyears"><%= resultsView[3].toPrecision(2) %></p>
           <p id="atlas"><%= resultsView[4] %></p>
+          <p id="conventional-rocket"><%= resultsView[5] %></p>
+          <p id="ion-rocket"><%= resultsView[6] %></p>
+          <p id="walking"><%= resultsView[7] %></p>
+          <p id="dog-walking"><%= resultsView[8] %></p>
+          <p id="driving"><%= resultsView[9] %></p>
         </section>
       </main>
   </body>
