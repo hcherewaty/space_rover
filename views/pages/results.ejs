@@ -15,14 +15,15 @@
           <input type="hidden" name="_method" value="put">
           <input type="hidden" name="distance" value="<%= resultsView %>">
             <fieldset>
-              Distance: <span><%= resultsView.km %></span>
-              <select name="units" id="units" onchange="this.form.submit()">Choose
+              Distance: <span id="distance"><%= resultsView.km %></span>
+              <select id="units"></select>
+              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
                 <option value="km">Kilometers</option>
                 <option value="m">Meters</option>
                 <option value="mi">Miles</option>
                 <option value="au">Light Years</option>
                 <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
-              </select>
+              </select> -->
               Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
               <ul> <!--will add in maybe an link that will fill in each one?-->
                 <li>Fun Fact 1</li>
@@ -33,6 +34,7 @@
               </ul> 
             </fieldset>
           </form>
+          <p id="APIinfo"><%= resultsView.km %></p>
         </section>
       </main>
   </body>
