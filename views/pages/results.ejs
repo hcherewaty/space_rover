@@ -3,20 +3,27 @@
 <html>
 
   <head>
-      <%- include('../layout/head') %>
+      
   </head>
   <body>
     <header>
       <%- include('../layout/header') %>
     </header>
-      <section id="hero-img">
-        <img id="hero-img" src="<%= planetImage %>" alt="" title=""/> <!--this image will come from an API?-->
-      </section>
       <main>
         <section>
-          <form>
+          <form action="/results" method="post">
+          <input type="hidden" name="_method" value="put">
+          <input type="hidden" name="distance" value="<%= resultsView %>">
             <fieldset>
-              Distance: <!--this will auto fill from API?--> <input type="number"> <!--option tag instead?-->
+              Distance: <span id="distance"><%= resultsView.km %></span>
+              <select id="units"></select>
+              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
+                <option value="km">Kilometers</option>
+                <option value="m">Meters</option>
+                <option value="mi">Miles</option>
+                <option value="au">Light Years</option>
+                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
+              </select> -->
               Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
               <ul> <!--will add in maybe an link that will fill in each one?-->
                 <li>Fun Fact 1</li>
@@ -27,6 +34,7 @@
               </ul> 
             </fieldset>
           </form>
+          <p id="APIinfo"><%= resultsView.km %></p>
         </section>
       </main>
   </body>
