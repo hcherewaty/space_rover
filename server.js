@@ -37,9 +37,7 @@ app.get('/', getImageOfTheDay);
 
 app.post('/results', searchQuery);
 
-app.get('/about', function (request, response) {
-  response.render('pages/about');
-});
+app.get('/about', getDevs);
 
 app.put('/results', updateResults);
 
@@ -110,8 +108,13 @@ const Conversion = function(measurement) {
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
 }
+function getDevs(request, response){
+  let SQL = 'SELECT * FROM devs;'
 
-
+  return client.query(SQL)
+    .then(result => response.render('pages/about', {resultAbout: result.rows}))
+    .catch(handleError);
+}
 
 function handleError (error, response) {
   app.get('/error')
