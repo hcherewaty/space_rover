@@ -125,9 +125,9 @@ function handleError (error, response) {
 ////////////////////////////////////////////////////////////////////////////
 
 function getPlanet(request, response){
-  let SQL = 'SELECT * FROM planet;'
+  let SQL = `SELECT * FROM planet WHERE name='${request.body.celestialBody.toUpperCase()}';`;
 
   return client.query(SQL)
-    .then(result => response.render('pages/results', {resultPlanet: result.rows}))
+    .then(result => response.render('pages/results', {planet: result.rows[0]}))
     .catch(handleError);
 }

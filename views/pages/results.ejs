@@ -16,10 +16,15 @@
 
 
         <section>
-          <% resultPlanet.forEach(planet => { %>
             <h4><%= planet.name %></h4>
             <img src=<%= planet.image %>>
-          <% })  %>
+            <div class='factsBox'>
+              <p> <%= planet.general_environment %> </p>
+              <p> <%= planet.day_length %> </p>
+              <p> <%= planet.random1 %> </p>
+              <p> <%= planet.random2 %> </p>
+            </div>
+            <p> Facts gathered from NASA api.</p>
         </section>
       </main>
   </body>
