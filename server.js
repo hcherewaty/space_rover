@@ -57,10 +57,10 @@ function Triangulate(location){
 function searchQuery(request, response){
   calculateDistance(request, response)
   .then(results => {
-    const measurement = new Conversion(results)
-    return measurement
+    const calcs = new Conversion(results)
+    return measurements(calcs)
   })
-    .then(measurement => response.render('pages/results', {resultsView: measurement}))
+    .then(calcs => response.render('pages/results', {resultsView: calcs}))
 }
 
 function getStartPoint(request, response){
@@ -102,6 +102,14 @@ function updateResults(request, response) {
   }
 }
 
+function measurements(obj) {
+  let input = [];
+
+    for (let i in obj) { 
+      input.push(obj[i]);
+  }
+  return input;
+}
 const Conversion = function(measurement) {
   this.km = measurement;
   this.m = measurement * 1000;
@@ -109,6 +117,7 @@ const Conversion = function(measurement) {
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
 }
+
 function getDevs(request, response){
   let SQL = 'SELECT * FROM devs;'
 

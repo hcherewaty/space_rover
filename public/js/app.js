@@ -1,7 +1,7 @@
 'use strict';
 
 const fillSelect = () => {
-  let selectMenuArray = ['Choose Unit of Measure'];
+  let selectMenuArray = [];
   // selectMenuArray.push(units);
   units.forEach((value) => {
     selectMenuArray.push(value);
@@ -15,30 +15,33 @@ const fillSelect = () => {
 
 let units = ['kilometers', 'meters', 'miles', 'light years', 'atlas'];
 
-// const Conversion = function(measurement) {
-//   this.km = measurement;
-//   this.m = measurement * 1000;
-//   this.mi = measurement * 0.621371;
-//   this.au = measurement * 0.0000000000001057;
-//   this.atlas = (measurement * 39370.1) / 60;
-// }
-
 $('#units').on('change', function () {
   let $selection = $(this).val();
   if ($selection === 'kilometers') {
-    $('#distance').show();
+    let kilometers = $('#kilometers').text();
+    $('#distance').text(kilometers);
   }
   if ($selection === 'meters'){
-    $('#APIinfo').replaceWith(function(){
-      $('#distance').text(function(i,txt) {return parseInt(txt, 10) * 1000;})
-    });
+    let meters = $('#meters').text();
+    $('#distance').text(meters);
   }
-  // $(`.${$selection}`).show()
+  if ($selection === 'miles'){
+    let miles = $('#miles').text();
+    $('#distance').text(miles);
+  }
+  if ($selection === 'light years'){
+    let lightyears = $('#lightyears').text();
+    $('#distance').text(lightyears);
+  }
+  if ($selection === 'atlas'){
+    let atlas = $('#atlas').text();
+    $('#distance').text(atlas);
+  }
 });
 
 function pageLoad() {
   $(() => fillSelect());
-  let kmDistance = $('APIinfo')
+  // let kmDistance = $('APIinfo')
 }
 
 pageLoad();
