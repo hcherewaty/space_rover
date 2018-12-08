@@ -140,6 +140,7 @@ function handleError (error, response) {
 
 function getPlanet(request, response){
   let SQL = `SELECT * FROM planet WHERE name='${request.body.celestialBody.toUpperCase()}';`;
+
   client.query(SQL)
   .then(result => {
     test = result
