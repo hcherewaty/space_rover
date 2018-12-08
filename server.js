@@ -53,14 +53,16 @@ function Triangulate(location){
   this.Y = location[1];
   this.Z = location[2];
 }
-function searchQuery(request, response){
-  calculateDistance(request, response)
-  .then(results => {
-    const calcs = new Conversion(results)
-    return measurements(calcs)
-  })
-    .then(calcs => response.render('pages/results', {resultsView: calcs}))
+let test;
+async function searchQuery(request, response){
+  await getPlanet(request, response)
+  const one = await calculateDistance(request, response);
+  
+    const measurement = new Conversion(one, test.rows[0])
+    console.log(measurement)
+    response.render('pages/results', {resultsView: measurement})
 }
+
 
 function getStartPoint(request, response){
   let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
@@ -101,20 +103,18 @@ function updateResults(request, response) {
   }
 }
 
-function measurements(obj) {
-  let input = [];
-
-    for (let i in obj) { 
-      input.push(obj[i]);
-  }
-  return input;
-}
-const Conversion = function(measurement) {
+function Conversion(measurement, arr) {
   this.km = measurement;
   this.m = measurement * 1000;
   this.mi = measurement * 0.621371;
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
+  this.name = arr.name;
+  this.image = arr.image;
+  this.general_environment = arr.general_environment;
+  this.day_length = arr.day_length;
+  this.random1 = arr.random1;
+  this.random2 = arr.random2;
 }
 
 function getDevs(request, response){
@@ -128,5 +128,15 @@ function getDevs(request, response){
 function handleError (error, response) {
   app.get('/error')
   response.render('pages/error', {error: error});
+}
+
+////////////////////////////////////////////////////////////////////////////
+
+function getPlanet(request, response){
+  let SQL = `SELECT * FROM planet WHERE name='${request.body.celestialBody.toUpperCase()}';`;
+  client.query(SQL)
+  .then(result => {
+    test = result
+  })
 }
 
