@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
-app.post('/results', getPlanet);
+app.post('/results', searchQuery);
 
 app.get('/about', getDevs);
 
