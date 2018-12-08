@@ -116,6 +116,11 @@ const Conversion = function(measurement) {
   this.mi = measurement * 0.621371;
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
+  this.timeRocket = (measurement / 57936.384) / 24;
+  this.timeIonRocket = (measurement / 321868.8) / 24;
+  this.timeWalking = (measurement / 4.02336) / 24;
+  this.timeDogWalking = (measurement / 3.21869) / 24;
+  this.timeDriving = (measurement / 96.5606) / 24;
 }
 
 function getDevs(request, response){
@@ -131,12 +136,3 @@ function handleError (error, response) {
   response.render('pages/error', {error: error});
 }
 
-////////////////////////////////////////////////////////////////////////////
-
-function getPlanet(request, response){
-  let SQL = 'SELECT * FROM planet;'
-
-  return client.query(SQL)
-    .then(result => response.render('pages/results', {resultPlanet: result.rows}))
-    .catch(handleError);
-}

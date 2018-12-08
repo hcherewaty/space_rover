@@ -3,33 +3,22 @@
 <html>
 
   <head>
-      
+    
   </head>
   <body>
     <header>
       <%- include('../layout/header') %>
     </header>
       <main>
-        
-             
-
-
-
         <section>
           <form action="/results" method="post">
           <input type="hidden" name="_method" value="put">
           <input type="hidden" name="distance" value="<%= resultsView %>">
             <fieldset>
-              Distance: <span id="distance"><%= resultsView[0] %></span>
+              Distance: <span id="distance"><%= parseFloat(resultsView[0].toFixed(2)) %></span>
               <select id="units"></select>
-              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
-                <option value="km">Kilometers</option>
-                <option value="m">Meters</option>
-                <option value="mi">Miles</option>
-                <option value="au">Light Years</option>
-                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
-              </select> -->
-              Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
+              Travel Time:  <span id="time"> <%= parseFloat(resultsView[5].toFixed(2)) %> </span>
+              <select id="speedmenu"></select>
               <ul> <!--will add in maybe an link that will fill in each one?-->
                 <li>Fun Fact 1</li>
                 <li>Fun Fact 2</li>
@@ -39,11 +28,16 @@
               </ul> 
             </fieldset>
           </form>
-          <p id="kilometers"><%= resultsView[0] %></p>
-          <p id="meters"><%= resultsView[1] %></p>
-          <p id="miles"><%= resultsView[2] %></p>
-          <p id="lightyears"><%= resultsView[3].toPrecision(2) %></p>
-          <p id="atlas"><%= resultsView[4] %></p>
+          <p class="hidden" id="kilometers"><%= parseFloat(resultsView[0].toFixed(2)) %></p>
+          <p class="hidden" id="meters"><%= parseFloat(resultsView[1].toFixed(2))%></p>
+          <p class="hidden" id="miles"><%= parseFloat(resultsView[2].toFixed(2)) %></p>
+          <p class="hidden" id="lightyears"><%= parseFloat(resultsView[3].toFixed(6)) %></p>
+          <p class="hidden" id="atlas"><%= parseFloat(resultsView[4].toFixed(2)) %></p>
+          <p class="hidden" id="conventional-rocket"><%= parseFloat(resultsView[5].toFixed(2)) %></p>
+          <p class="hidden" id="ion-rocket"><%= parseFloat(resultsView[6].toFixed(2)) %></p>
+          <p class="hidden" id="walking"><%= parseFloat(resultsView[7].toFixed(2)) %></p>
+          <p class="hidden" id="dog-walking"><%= parseFloat(resultsView[8].toFixed(2)) %></p>
+          <p class="hidden" id="driving"><%= parseFloat(resultsView[9].toFixed(2)) %></p>
         </section>
       </main>
   </body>
