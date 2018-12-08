@@ -54,14 +54,16 @@ function Triangulate(location){
   this.Z = location[2];
 }
 
-function searchQuery(request, response){
-  calculateDistance(request, response)
-  .then(results => {
-    const measurement = new Conversion(results)
-    return measurement
-  })
-    .then(measurement => response.render('pages/results', {resultsView: measurement}))
+let test;
+async function searchQuery(request, response){
+  await getPlanet(request, response)
+  const one = await calculateDistance(request, response);
+  
+    const measurement = new Conversion(one, test.rows[0])
+    console.log(measurement)
+    response.render('pages/results', {resultsView: measurement})
 }
+
 
 function getStartPoint(request, response){
   let url = `http://www.astro-phys.com/api/de406/states?${request.body.date}&bodies=earth`
@@ -102,13 +104,25 @@ function updateResults(request, response) {
   }
 }
 
-const Conversion = function(measurement) {
+function Conversion(measurement, arr) {
   this.km = measurement;
   this.m = measurement * 1000;
   this.mi = measurement * 0.621371;
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
+  this.name = arr.name;
+  this.image = arr.image;
+  this.general_environment = arr.general_environment;
+  this.day_length = arr.day_length;
+  this.random1 = arr.random1;
+  this.random2 = arr.random2;
+  this.timeRocket = (measurement / 57936.384) / 24;
+  this.timeIonRocket = (measurement / 321868.8) / 24;
+  this.timeWalking = (measurement / 4.02336) / 24;
+  this.timeDogWalking = (measurement / 3.21869) / 24;
+  this.timeDriving = (measurement / 96.5606) / 24;
 }
+
 function getDevs(request, response){
   let SQL = 'SELECT * FROM devs;'
 
@@ -127,7 +141,9 @@ function handleError (error, response) {
 function getPlanet(request, response){
   let SQL = `SELECT * FROM planet WHERE name='${request.body.celestialBody.toUpperCase()}';`;
 
-  return client.query(SQL)
-    .then(result => response.render('pages/results', {planet: result.rows[0]}))
-    .catch(handleError);
+  client.query(SQL)
+  .then(result => {
+    test = result
+  })
 }
+

@@ -1,44 +1,85 @@
 'use strict';
 
-const fillSelect = () => {
-  let selectMenuArray = ['Choose Unit of Measure'];
-  // selectMenuArray.push(units);
+const fillMeasures = () => {
+  let selectMenuArray = [];
   units.forEach((value) => {
     selectMenuArray.push(value);
   })
-  if ($('option').length <= 1 ) {
+  // if ($('option').length <= 1 ) {
     selectMenuArray.forEach( (value) => {
-      $('select').append(`<option value="${value}">${value}</option>`);
+      $('#units').append(`<option value="${value}">${value}</option>`);
     })
-  }
+  // }
 }
 
-let units = ['kilometers', 'meters', 'miles', 'light years', 'atlas'];
+const fillSpeeds = () => {
+  let speedMenuArray = [];
+  speeds.forEach((value) => {
+    speedMenuArray.push(value);
+  })
+  // if ($('option').length <= 1 ) {
+    speedMenuArray.forEach( (value) => {
+      $('#speedmenu').append(`<option value="${value}">${value}</option>`);
+    })
+  // }
+}
 
-// const Conversion = function(measurement) {
-//   this.km = measurement;
-//   this.m = measurement * 1000;
-//   this.mi = measurement * 0.621371;
-//   this.au = measurement * 0.0000000000001057;
-//   this.atlas = (measurement * 39370.1) / 60;
-// }
+let speeds = ['conventional rocket', 'VASIMR Ion Drive Engine', 'walking', 'dog walking', 'driving'];
+
+let units = ['kilometers', 'meters', 'miles', 'light years', 'atlas'];
 
 $('#units').on('change', function () {
   let $selection = $(this).val();
   if ($selection === 'kilometers') {
-    $('#distance').show();
+    let kilometers = $('#kilometers').text();
+    $('#distance').text(kilometers);
   }
   if ($selection === 'meters'){
-    $('#APIinfo').replaceWith(function(){
-      $('#distance').text(function(i,txt) {return parseInt(txt, 10) * 1000;})
-    });
+    let meters = $('#meters').text();
+    $('#distance').text(meters);
   }
-  // $(`.${$selection}`).show()
+  if ($selection === 'miles'){
+    let miles = $('#miles').text();
+    $('#distance').text(miles);
+  }
+  if ($selection === 'light years'){
+    let lightyears = $('#lightyears').text();
+    $('#distance').text(lightyears);
+  }
+  if ($selection === 'atlas'){
+    let atlas = $('#atlas').text();
+    $('#distance').text(atlas);
+  }
 });
 
+$('#speedmenu').on('change', function() {
+  let $selection = $(this).val();
+  if ($selection === 'conventional rocket'){
+    let conventionalRocket = $('#conventional-rocket').text();
+    $('#time').text(conventionalRocket);
+  }
+  if ($selection === 'VASIMR Ion Drive Engine'){
+    let ionRocket = $('#ion-rocket').text();
+    $('#time').text(ionRocket);
+  }
+  if ($selection === 'walking'){
+    let walking = $('#walking').text();
+    $('#time').text(walking);
+  }
+  if ($selection === 'dog walking'){
+    let dogWalking = $('#dog-walking').text();
+    $('#time').text(dogWalking);
+  }
+  if ($selection === 'driving'){
+    let driving = $('#driving').text();
+    $('#time').text(driving);
+  }
+});
+
+
 function pageLoad() {
-  $(() => fillSelect());
-  let kmDistance = $('APIinfo')
+  $(() => fillSpeeds());  
+  $(() => fillMeasures());
 }
 
 pageLoad();

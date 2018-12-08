@@ -10,21 +10,44 @@
       <%- include('../layout/header') %>
     </header>
       <main>
-        
-             
-
-
-
         <section>
-            <h4><%= planet.name %></h4>
-            <img src=<%= planet.image %>>
-            <div class='factsBox'>
-              <p> <%= planet.general_environment %> </p>
-              <p> <%= planet.day_length %> </p>
-              <p> <%= planet.random1 %> </p>
-              <p> <%= planet.random2 %> </p>
-            </div>
-            <p> Facts gathered from NASA api.</p>
+          <form action="/results" method="post">
+          <input type="hidden" name="_method" value="put">          
+          <input type="hidden" name="distance" value="<%= parseFloat(resultsView.km.toFixed(2)) %>">
+            <fieldset>
+              Distance: <span id="distance"><%= resultsView.km %></span>
+              <select id="units"></select>
+              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
+                <option value="km">Kilometers</option>
+                <option value="m">Meters</option>
+                <option value="mi">Miles</option>
+                <option value="au">Light Years</option>
+                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
+              </select> -->
+              Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> </span>
+              <select id="speedmenu"></select>
+                <h4><%= resultsView.name %></h4>
+                <img src=<%= resultsView.image %>>
+                <div class='factsBox'>
+                  <p> <%= resultsView.general_environment %> </p>
+                  <p> <%= resultsView.day_length %> </p>
+                  <p> <%= resultsView.random1 %> </p>
+                  <p> <%= resultsView.random2 %> </p>
+                </div>
+                <p> Facts gathered from NASA api.</p>
+            </section>
+            </fieldset>
+          </form>
+          <p id="kilometers"><%= resultsView.km %></p>
+          <p id="meters"><%= resultsView.m %></p>
+          <p id="miles"><%= resultsView.mi %></p>
+          <p id="lightyears"><%= resultsView.au.toPrecision(2) %></p>
+          <p id="atlas"><%= resultsView.atlas %></p>
+          <p class="hidden" id="conventional-rocket"><%= parseFloat(resultsView.timeRocket.toFixed(2)) %></p>
+          <p class="hidden" id="ion-rocket"><%= parseFloat(resultsView.timeIonRocket.toFixed(2)) %></p>
+          <p class="hidden" id="walking"><%= parseFloat(resultsView.timeWalking.toFixed(2)) %></p>
+          <p class="hidden" id="dog-walking"><%= parseFloat(resultsView.timeDogWalking.toFixed(2)) %></p>
+          <p class="hidden" id="driving"><%= parseFloat(resultsView.timeDriving.toFixed(2)) %></p>
         </section>
       </main>
   </body>
