@@ -25,13 +25,17 @@
                 <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
               </select> -->
               Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
-              <ul> <!--will add in maybe an link that will fill in each one?-->
-                <li>Fun Fact 1</li>
-                <li>Fun Fact 2</li>
-                <li>Fun Fact 3</li>
-                <li>Fun Fact 4</li>
-                <li>Fun Fact 5</li>
-              </ul> 
+              <section>
+                <h4><%= resultsView.name %></h4>
+                <img src=<%= resultsView.image %>>
+                <div class='factsBox'>
+                  <p> <%= resultsView.general_environment %> </p>
+                  <p> <%= resultsView.day_length %> </p>
+                  <p> <%= resultsView.random1 %> </p>
+                  <p> <%= resultsView.random2 %> </p>
+                </div>
+                <p> Facts gathered from NASA api.</p>
+            </section>
             </fieldset>
           </form>
           <p id="kilometers"><%= resultsView.km %></p>
