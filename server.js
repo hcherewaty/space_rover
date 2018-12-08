@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
-app.post('/results', searchQuery);
+app.post('/results', getPlanet);
 
 app.get('/about', getDevs);
 
@@ -53,6 +53,7 @@ function Triangulate(location){
   this.Y = location[1];
   this.Z = location[2];
 }
+
 function searchQuery(request, response){
   calculateDistance(request, response)
   .then(results => {
@@ -134,3 +135,4 @@ function handleError (error, response) {
   app.get('/error')
   response.render('pages/error', {error: error});
 }
+
