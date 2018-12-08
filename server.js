@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', getImageOfTheDay);
 
-app.post('/results', searchQuery);
+app.post('/results', getPlanet);
 
 app.get('/about', getDevs);
 
@@ -53,6 +53,7 @@ function Triangulate(location){
   this.Y = location[1];
   this.Z = location[2];
 }
+
 let test;
 async function searchQuery(request, response){
   await getPlanet(request, response)
@@ -115,6 +116,11 @@ function Conversion(measurement, arr) {
   this.day_length = arr.day_length;
   this.random1 = arr.random1;
   this.random2 = arr.random2;
+  this.timeRocket = (measurement / 57936.384) / 24;
+  this.timeIonRocket = (measurement / 321868.8) / 24;
+  this.timeWalking = (measurement / 4.02336) / 24;
+  this.timeDogWalking = (measurement / 3.21869) / 24;
+  this.timeDriving = (measurement / 96.5606) / 24;
 }
 
 function getDevs(request, response){

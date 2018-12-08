@@ -1,0 +1,12 @@
+'/images/jupiter.jpg'
+'/images/earth.jpg'
+'/images/mars.jpg'
+'/images/saturn.jpg'
+'/images/sun.jpg'
+'/images/venus.jpg'
+'/images/moon.jpg'
+'/images/mercury.png'
+'/images/uranus.jpg'
+'/images/neptune.jpg'
+'/images/plutp.jpg'
+

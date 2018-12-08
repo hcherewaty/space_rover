@@ -12,8 +12,8 @@
       <main>
         <section>
           <form action="/results" method="post">
-          <input type="hidden" name="_method" value="put">
-          <input type="hidden" name="distance" value="<%= resultsView.km %>">
+          <input type="hidden" name="_method" value="put">          
+          <input type="hidden" name="distance" value="<%= parseFloat(resultsView.km.toFixed(2)) %>">
             <fieldset>
               Distance: <span id="distance"><%= resultsView.km %></span>
               <select id="units"></select>
@@ -24,8 +24,8 @@
                 <option value="au">Light Years</option>
                 <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
               </select> -->
-              Travel Time: <!--this will auto fill form API?--> <input type="number"> <!--option tag instead?-->
-              <section>
+              Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> </span>
+              <select id="speedmenu"></select>
                 <h4><%= resultsView.name %></h4>
                 <img src=<%= resultsView.image %>>
                 <div class='factsBox'>
@@ -43,6 +43,11 @@
           <p id="miles"><%= resultsView.mi %></p>
           <p id="lightyears"><%= resultsView.au.toPrecision(2) %></p>
           <p id="atlas"><%= resultsView.atlas %></p>
+          <p class="hidden" id="conventional-rocket"><%= parseFloat(resultsView.timeRocket.toFixed(2)) %></p>
+          <p class="hidden" id="ion-rocket"><%= parseFloat(resultsView.timeIonRocket.toFixed(2)) %></p>
+          <p class="hidden" id="walking"><%= parseFloat(resultsView.timeWalking.toFixed(2)) %></p>
+          <p class="hidden" id="dog-walking"><%= parseFloat(resultsView.timeDogWalking.toFixed(2)) %></p>
+          <p class="hidden" id="driving"><%= parseFloat(resultsView.timeDriving.toFixed(2)) %></p>
         </section>
       </main>
   </body>

@@ -1,17 +1,30 @@
 'use strict';
 
-const fillSelect = () => {
+const fillMeasures = () => {
   let selectMenuArray = [];
-  // selectMenuArray.push(units);
   units.forEach((value) => {
     selectMenuArray.push(value);
   })
-  if ($('option').length <= 1 ) {
+  // if ($('option').length <= 1 ) {
     selectMenuArray.forEach( (value) => {
-      $('select').append(`<option value="${value}">${value}</option>`);
+      $('#units').append(`<option value="${value}">${value}</option>`);
     })
-  }
+  // }
 }
+
+const fillSpeeds = () => {
+  let speedMenuArray = [];
+  speeds.forEach((value) => {
+    speedMenuArray.push(value);
+  })
+  // if ($('option').length <= 1 ) {
+    speedMenuArray.forEach( (value) => {
+      $('#speedmenu').append(`<option value="${value}">${value}</option>`);
+    })
+  // }
+}
+
+let speeds = ['conventional rocket', 'VASIMR Ion Drive Engine', 'walking', 'dog walking', 'driving'];
 
 let units = ['kilometers', 'meters', 'miles', 'light years', 'atlas'];
 
@@ -39,9 +52,34 @@ $('#units').on('change', function () {
   }
 });
 
+$('#speedmenu').on('change', function() {
+  let $selection = $(this).val();
+  if ($selection === 'conventional rocket'){
+    let conventionalRocket = $('#conventional-rocket').text();
+    $('#time').text(conventionalRocket);
+  }
+  if ($selection === 'VASIMR Ion Drive Engine'){
+    let ionRocket = $('#ion-rocket').text();
+    $('#time').text(ionRocket);
+  }
+  if ($selection === 'walking'){
+    let walking = $('#walking').text();
+    $('#time').text(walking);
+  }
+  if ($selection === 'dog walking'){
+    let dogWalking = $('#dog-walking').text();
+    $('#time').text(dogWalking);
+  }
+  if ($selection === 'driving'){
+    let driving = $('#driving').text();
+    $('#time').text(driving);
+  }
+});
+
+
 function pageLoad() {
-  $(() => fillSelect());
-  // let kmDistance = $('APIinfo')
+  $(() => fillSpeeds());  
+  $(() => fillMeasures());
 }
 
 pageLoad();
