@@ -54,3 +54,18 @@ footer div {
   text-align: center;
   padding: 1em 0em;
 }
+
+/* In Results Page */
+
+#planetResults {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 2.5em;
+  width: 90%;
+  color: rgb(231, 225, 225);
+}
+
+.factsBox {
+  font-size: .75em;
+  display: inline;
+}
