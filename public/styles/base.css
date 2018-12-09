@@ -22,6 +22,12 @@ h2 {
     font-weight: bolder;
   }
 
+h4 {
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: .75em;
+}
+
 nav {
     color: rgb(231, 225, 225);
     background: black;
@@ -73,3 +79,4 @@ button:hover {
 a:hover {
     color: red;
     transition: 0.3s;
+}

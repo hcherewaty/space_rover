@@ -3,7 +3,7 @@
 <html>
 
   <head>
-      
+    <%- include('../layout/head') %>
   </head>
   <body>
     <header>
@@ -11,7 +11,10 @@
     </header>
       <main>
         <section>
-          <form action="/results" method="post">
+          <div class="planetImage">
+            <img src=<%= resultsView.image %>>
+          </div>
+          <form id="planetResults" action="/results" method="post">
           <input type="hidden" name="_method" value="put">          
           <input type="hidden" name="distance" value="<%= parseFloat(resultsView.km.toFixed(2)) %>">
             <fieldset>
@@ -27,12 +30,11 @@
               Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> </span>
               <select id="speedmenu"></select>
                 <h4><%= resultsView.name %></h4>
-                <img src=<%= resultsView.image %>>
                 <div class='factsBox'>
-                  <p> <%= resultsView.general_environment %> </p>
-                  <p> <%= resultsView.day_length %> </p>
-                  <p> <%= resultsView.random1 %> </p>
-                  <p> <%= resultsView.random2 %> </p>
+                  <p> General Environment: <%= resultsView.general_environment %> </p>
+                  <p> Visiting: <%= resultsView.day_length %> </p>
+                  <p> Random Fact: <%= resultsView.random1 %> </p>
+                  <p> Randmon Fact: <%= resultsView.random2 %> </p>
                 </div>
                 <p> Facts gathered from NASA api.</p>
             </section>

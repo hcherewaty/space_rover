@@ -1,3 +1,5 @@
+/* Home page */
+
 #hero img {
   min-width: 600px;
   position: fixed;
@@ -82,4 +84,51 @@ form button {
 #insutrctions-nav:hover {
   color: red;
   transition: 0.3s;
+}
+
+/* Results Page */
+
+.planetImage {
+  width: 100%;
+  background-color: black;
+}
+
+div img {
+  margin-top: 4.5em;
+  margin-left: 20em;
+  margin-bottom: 4.5em;
+  width: 50%;
+}
+
+#planetResults {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 3em;
+  width: 100%;
+}
+
+.factsBox {
+  font-size: .75em;
+  display: inline;
+}
+
+.factsBox :first-child {
+  margin-top: 1em;
+}
+
+.factsBox :nth-child(2) {
+  margin-top: 1em;
+}
+
+.factsBox :nth-child(3) {
+  margin-top: 1em;
+}
+
+.factsBox :nth-child(4) {
+  margin-top: 1em;
+}
+
+select #speedmenu p {
+  margin-top: 3em;
+  font-size: .5em;
 }
