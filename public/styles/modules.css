@@ -103,8 +103,9 @@ div img {
 #planetResults {
   margin-top: 2em;
   text-align: center;
-  font-size: 3em;
-  width: 100%;
+  font-size: 2.5em;
+  width: 90%;
+  color: rgb(231, 225, 225);
 }
 
 .factsBox {
@@ -112,16 +113,8 @@ div img {
   display: inline;
 }
 
-.factsBox :nth-child(2) {
-  margin-top: 1em;
-}
-
-.factsBox :nth-child(3) {
-  margin-top: 1em;
-}
-
-.factsBox :nth-child(4) {
-  margin-top: 1em;
+.factsBox p {
+  margin-bottom: 2em;
 }
 
 #NASAcredit {
@@ -129,13 +122,13 @@ div img {
   font-size: .45em;
 }
 
-section {
+#resultsPage {
   background: rgb(41, 41, 41);
 }
 
 h3 {
+  color:  rgb(231, 225, 225);
+  text-align: center;
   font-size: 1.5em;
-  font-weight: bold;
-  color: white;
-  margin-bottom: .75em;
+  text-shadow: 1.5px 1.5px red;
 }
