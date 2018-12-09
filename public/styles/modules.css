@@ -132,3 +132,11 @@ h3 {
   font-size: 1.5em;
   text-shadow: 1.5px 1.5px red;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+main {
+  background: rgb(41, 41, 41);
+}

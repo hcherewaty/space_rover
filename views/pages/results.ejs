@@ -44,11 +44,11 @@
             </section>
             </fieldset>
           </form>
-          <p id="kilometers"><%= resultsView.km %></p>
-          <p id="meters"><%= resultsView.m %></p>
-          <p id="miles"><%= resultsView.mi %></p>
-          <p id="lightyears"><%= resultsView.au.toPrecision(2) %></p>
-          <p id="atlas"><%= resultsView.atlas %></p>
+          <p class="hidden" id="kilometers"><%= resultsView.km %></p>
+          <p class="hidden" id="meters"><%= resultsView.m %></p>
+          <p class="hidden" id="miles"><%= resultsView.mi %></p>
+          <p class="hidden" id="lightyears"><%= resultsView.au.toPrecision(2) %></p>
+          <p class="hidden" id="atlas"><%= resultsView.atlas %></p>
           <p class="hidden" id="conventional-rocket"><%= parseFloat(resultsView.timeRocket.toFixed(2)) %></p>
           <p class="hidden" id="ion-rocket"><%= parseFloat(resultsView.timeIonRocket.toFixed(2)) %></p>
           <p class="hidden" id="walking"><%= parseFloat(resultsView.timeWalking.toFixed(2)) %></p>
