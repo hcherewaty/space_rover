@@ -31,12 +31,16 @@
               <select id="speedmenu"></select>
                 <h4><%= resultsView.name %></h4>
                 <div class='factsBox'>
-                  <p> General Environment: <%= resultsView.general_environment %> </p>
-                  <p> Visiting: <%= resultsView.day_length %> </p>
-                  <p> Random Fact: <%= resultsView.random1 %> </p>
-                  <p> Randmon Fact: <%= resultsView.random2 %> </p>
+                  <h3>General Environment: </h3>  
+                  <p><%= resultsView.general_environment %></p>
+                  <h3>Visiting: </h3>
+                  <p><%= resultsView.day_length %></p>
+                  <h3>Random Fact: </h3>
+                  <p><%= resultsView.random1 %></p>
+                  <h3>Random Fact: </h3>
+                  <p><%= resultsView.random2 %> </p>
                 </div>
-                <p> Facts gathered from NASA api.</p>
+                <p id="NASAcredit"> Facts gathered from NASA api.</p>
             </section>
             </fieldset>
           </form>

@@ -112,10 +112,6 @@ div img {
   display: inline;
 }
 
-.factsBox :first-child {
-  margin-top: 1em;
-}
-
 .factsBox :nth-child(2) {
   margin-top: 1em;
 }
@@ -128,7 +124,18 @@ div img {
   margin-top: 1em;
 }
 
-select #speedmenu p {
+#NASAcredit {
   margin-top: 3em;
-  font-size: .5em;
+  font-size: .45em;
+}
+
+section {
+  background: rgb(41, 41, 41);
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  margin-bottom: .75em;
 }
