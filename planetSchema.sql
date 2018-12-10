@@ -13,6 +13,9 @@ CREATE TABLE planet (
 );
 
 INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
+VALUES ('SUN', '/styles/images/sun.jpg', 'The Sun''s core is about 27 million degrees Fahrenheit (15 million degrees Celsius). As a star, the Sun is a ball of gas (92.1 percent hydrogen and 7.8 percent helium) held together by its own gravity.', 'The Sun is the center of the solar system and all planets orbit around it. The length of a year on a planet is based around the time it takes that planet to orbit the Sun.','The sun is 26,000 light years from the galactic center of the milky way!','The Sun is the center of our solar system and makes up 99.8 percent of the mass of the entire solar system.');
+
+INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
 VALUES ('MERCURY', '/styles/images/mercury.png', 'Mercury is a rocky planet with craters similar to the earth''s moon. Its atmosphere is composed mostly of oxygen (O2), sodium (Na), hydrogen (H2), helium (He), and potassium (K), so humans cannot breathe on Mercury. Daytime Temperatures can reach 430 degrees Celsius (800 degrees Fahrenheit) and drop to -180 degrees Celsius (-290 degrees Fahrenheit) at night. Suffice it to say, with our current technologies, humans could not survive here.','It takes 88 Earth days for Mercury to orbit the sun!', 'Mercury is the smallest planet in our solar system—only slightly larger than Earths Moon.','If you could stand on Mercury, the sun would appear 3 times larger than it would from Earth.');
 
 INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
@@ -20,6 +23,9 @@ VALUES ('VENUS', '/styles/images/venus.jpg', 'Venus'' solid surface is a volcani
 
 INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
 VALUES ('EARTH', '/styles/images/earth.jpg', 'Earth''s atmosphere is 78 percent nitrogen, 21 percent oxygen and 1 percent other ingredients—the perfect balance to breathe and live.','It takes 365 Earth days for Earth to orbit the sun!','We are on it!', 'Earth is the only planet recorded to have Beyonce on it.');
+
+INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
+VALUES ('MOON', '/styles/images/moon.jpg', 'The Moon is a rocky, solid-surface body with much of its surface cratered and pitted from impacts.', 'It takes approximately 27 Earth days to complate a year for the Moon.','The Moon is Earth''s satellite and orbits the Earth at a distance of about 384 thousand km (239 thousand miles) or 0.00257 AU.','The Moon has had 24 human visitors, but only 12 moonwalkers.');
 
 INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
 VALUES ('MARS', '/styles/images/mars.jpg', 'Mars is a rocky planet. Its solid surface has been altered by volcanoes, impacts, winds, crustal movement and chemical reactions. Mars has a thin atmosphere made up mostly of carbon dioxide (CO2), argon (Ar), nitrogen (N2), and a small amount of oxygen and water vapor.','It takes 687 Earth days for Mars to orbit the sun!','Mars is known as the Red Planet because iron minerals in the Martian soil oxidize, or rust, causing the soil and atmosphere to look red.','With about 1/3 the gravity of Earth, anyone on Mars could dunk a basketball in a regulation goal.');
@@ -39,8 +45,3 @@ VALUES ('NEPTUNE', '/styles/images/neptune.jpg', 'Neptune is an ice giant. Most 
 INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
 VALUES ('PLUTO', '/styles/images/pluto.jpg', 'Pluto’s surface is far too cold, -378 to -396 degrees F (-228 to -238 C), to sustain life as we know it. Pluto has a thin atmosphere of nitrogen, methane and carbon monoxide. The atmosphere has a blue tint and distinct layers of haze.','It takes 90, 530 Earth days for Pluto to orbit the sun.','Venetia Burney, just 11 years old at the time, suggested the name Pluto in 1930.','Pluto has 5 moons. The largest, Charon, is so big that Pluto and Charon orbit each other like a double planet.');
 
-INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
-VALUES ('EARTHMOON', '/styles/images/moon.jpg', 'The Moon is a rocky, solid-surface body with much of its surface cratered and pitted from impacts.', 'It takes approximately 27 Earth days to complate a year for the Moon.','The Moon is Earth''s satellite and orbits the Earth at a distance of about 384 thousand km (239 thousand miles) or 0.00257 AU.','The Moon has had 24 human visitors, but only 12 moonwalkers.');
-
-INSERT INTO planet (name, image, general_environment, day_length, random1, random2)
-VALUES ('SUN', '/styles/images/sun.jpg', 'The Sun''s core is about 27 million degrees Fahrenheit (15 million degrees Celsius). As a star, the Sun is a ball of gas (92.1 percent hydrogen and 7.8 percent helium) held together by its own gravity.', 'The Sun is the center of the solar system and all planets orbit around it. The length of a year on a planet is based around the time it takes that planet to orbit the Sun.','The sun is 26,000 light years from the galactic center of the milky way!','The Sun is the center of our solar system and makes up 99.8 percent of the mass of the entire solar system.');
