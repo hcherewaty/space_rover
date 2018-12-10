@@ -146,4 +146,3 @@ function getPlanet(request, response){
     test = result
   })
 }
-
