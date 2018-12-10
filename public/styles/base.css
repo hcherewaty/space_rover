@@ -68,7 +68,6 @@ nav a{
     display: block;
     margin-top: .5em;
     margin-left: .5em;
-    margin-right: .5em;
 }
 
 #about {
@@ -76,7 +75,7 @@ nav a{
     right: 0;
     top: .2em;
     font-size: 1.75em;
-    margin: .25em .5em;
+    margin: .25em .5em .25em 0em;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
     letter-spacing: 2px;

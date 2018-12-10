@@ -1,50 +1,3 @@
-/* Tablet view */
-@media screen and (max-width: 800px) and (min-width: 480px){
-  #hero img {
-      min-width: 800px;
-      position: fixed;
-      overflow: hidden;
-      z-index: -1000;
-      top: 0;
-      left: 0;
-  }
-  .planetImage {
-    width: 100%;
-    background-color: black;
-    padding-top: 50px;
-    padding-bottom: 3%;
-  }
-  
-  div img {
-    display: block;
-    margin: 6% auto 3% auto;
-    width: 75%;
-  }
-}
-
-/* Desktop view */
-@media screen and (min-width: 800px){
-  #hero img {
-      width: 110%;
-      position: fixed;
-      overflow: hidden;
-      z-index: -1000;
-      top: 0;
-  }
-  .planetImage {
-    width: 100%;
-    background-color: black;
-    padding-top: 50px;
-    padding-bottom: 3%;
-  }
-  
-  div img {
-    display: block;
-    margin: 6% auto 3% auto;
-    width: 50%;
-  }
-}
-
 #content {
   background: rgb(41, 41, 41);
   color: rgb(209, 204, 204);
@@ -88,15 +41,14 @@ footer div {
   display: inline;
 }
 
-
 /* In About Page */
 .astronauts img {
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  height: 80%;
 }
 
 .astronauts {
-  width: 40%;
+  width: 80%;
   height: 30%;
   margin: 5%;
 }
@@ -106,11 +58,13 @@ footer div {
   flex-wrap: wrap;
   flex-flow: row wrap;
   justify-content: space-around;
+  min-width: 100%;
 }
 
 .astronauts p {
   padding: 2% 5% 5% 2%;
   color: #f7f9fc;
+  text-align: center;
 }
 
 ul {
@@ -120,4 +74,87 @@ ul {
 
 .astronauts li {
   display: inline-block;
+}
+
+#about-header {
+  text-align: center;
+  margin: 1em 20% .5em 20%;
+  font-size: 4em;
+}
+
+
+/* Tablet view */
+@media screen and (max-width: 800px) and (min-width: 480px){
+  #hero-image {
+      min-width: 800px;
+      position: fixed;
+      overflow: hidden;
+      z-index: -1000;
+      top: 0;
+      left: 0;
+  }
+  .planetImage {
+    width: 100%;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 3%;
+  }
+  
+  div img {
+    display: block;
+    margin: 6% auto 3% auto;
+    width: 75%;
+  }
+
+  /* In About Page */
+  .astronauts img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .astronauts {
+    width: 40%;
+    height: 30%;
+    margin: 5%;
+  }
+}
+
+/* Desktop view */
+@media screen and (min-width: 800px){
+  #hero-image {
+      width: 110%;
+      position: fixed;
+      overflow: hidden;
+      z-index: -1000;
+      top: 0;
+  }
+  .planetImage {
+    width: 100%;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 3%;
+  }
+  
+  div img {
+    display: block;
+    margin: 6% auto 3% auto;
+    width: 50%;
+  }
+
+  /* In About Page */
+  .astronauts img {
+    width: 60%;
+    height: 60%;
+  }
+
+  .astronauts {
+    width: 40%;
+    height: 30%;
+    margin: 5%;
+  }
+
+  div.astronauts{
+    margin-bottom: 1.5em;
+  }
+
 }
