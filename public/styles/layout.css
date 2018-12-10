@@ -1,4 +1,4 @@
-/* tablet view */
+/* Tablet view */
 @media screen and (max-width: 800px) and (min-width: 480px){
   #hero img {
       min-width: 800px;
@@ -8,22 +8,41 @@
       top: 0;
       left: 0;
   }
+  .planetImage {
+    width: 100%;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 3%;
+  }
+  
+  div img {
+    display: block;
+    margin: 6% auto 3% auto;
+    width: 75%;
+  }
 }
 
 /* Desktop view */
 @media screen and (min-width: 800px){
   #hero img {
-      width: 100%;
+      width: 110%;
       position: fixed;
       overflow: hidden;
       z-index: -1000;
       top: 0;
   }
-}
-
-.TemporaryFix
-{
-    margin-top: 100px;
+  .planetImage {
+    width: 100%;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 3%;
+  }
+  
+  div img {
+    display: block;
+    margin: 6% auto 3% auto;
+    width: 50%;
+  }
 }
 
 #content {
@@ -33,7 +52,7 @@
   text-align: center;
   width: 70%;
   height: 40%;
-  margin: 15% auto;
+  margin: 18% auto 13% auto;
   border-radius: 8px;
 }
 
@@ -53,4 +72,18 @@ footer div {
   height: 40%;
   text-align: center;
   padding: 1em 0em;
+}
+
+/* In Results Page */
+
+#planetResults {
+  margin-top: 2em;
+  text-align: center;
+  width: 90%;
+  color: rgb(231, 225, 225);
+}
+
+.factsBox {
+  font-size: .75em;
+  display: inline;
 }
