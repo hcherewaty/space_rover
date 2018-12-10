@@ -87,3 +87,37 @@ footer div {
   font-size: .75em;
   display: inline;
 }
+
+
+/* In About Page */
+.astronauts img {
+  width: 50%;
+  height: 50%;
+}
+
+.astronauts {
+  width: 40%;
+  height: 30%;
+  margin: 5%;
+}
+
+#astroContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.astronauts p {
+  padding: 2% 5% 5% 2%;
+  color: #f7f9fc;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.astronauts li {
+  display: inline-block;
+}

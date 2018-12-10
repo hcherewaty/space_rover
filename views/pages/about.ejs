@@ -9,19 +9,25 @@
         <%- include('../layout/header') %>
         </header>
         <main>
-            <!-- template -->
-            <section class=TemporaryFix>
-                <% resultAbout.forEach(dev => { %>
-                <img src=<%= dev.image_url %> alt="Brave astronaut programmers standing stoic staring unblinking at a distant sun">
-                <h4><%= dev.name %></h4>
-                <p><%= dev.bio %></p>
-                <ul>
-                    <li><a target="_blank" href=" <%= dev.github %> ">  <i class="fab fa-github"></i></a></li>
-                    <li><a target="_blank" href=" <%= dev.linkedin %> "><i class="fab fa-linkedin"></i></a></li>
-                    <li><a target="_blank" href=" <%= dev.twitter %> "> <i class="fab fa-twitter"></i></a></li>
-                    <li><a target="_blank" href=" <%= dev.email %> ">   <i class="fas fa-envelope"></i></a></li>
-                </ul>
-                <% }) %>
+            <section id="aboutPage">
+                <div class="planetImage">
+                    <img src="styles/images/earth.jpg">
+                </div>
+                    <div id="astroContainer">
+                    <% resultAbout.forEach(dev => { %>
+                    <div class="astronauts">
+                        <img src=<%= dev.image_url %> alt="Brave astronaut programmers standing stoic staring unblinking at a distant sun">
+                        <h4><%= dev.name %></h4>
+                        <p><%= dev.bio %></p>
+                        <ul>
+                            <li><a target="_blank" href=" <%= dev.github %> ">  <i class="fab fa-github"></i></a></li>
+                            <li><a target="_blank" href=" <%= dev.linkedin %> "><i class="fab fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href=" <%= dev.twitter %> "> <i class="fab fa-twitter"></i></a></li>
+                            <li><a target="_blank" href=" <%= dev.email %> ">   <i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <% }) %>
+                </div>
             </section>
         </main>
         <footer>
