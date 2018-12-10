@@ -17,11 +17,11 @@
           <form id="planetResults" action="/results" method="post">
           <input type="hidden" name="_method" value="put">          
           <input type="hidden" name="distance" value="<%= parseFloat(resultsView.km.toFixed(2)) %>">
-          <h3><%= resultsView.name %></h3>
+          <h3><%= resultsView.destination %></h3>
             <fieldset>
-              <p>Distance: <span id="distance"><%= resultsView.km %></span></p>
+              <p>Distance from <%= resultsView.launch %>: <span id="distance"><%= resultsView.km %></span></p>
               <select id="units"></select>
-              <p>Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> days</span></p>
+              <p>Travel Time from <%= resultsView.launch %>:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> days</span></p>
               <select id="speedmenu"></select>
                 <div class='factsBox'>
                   <h4>General Environment: </h4>  
@@ -40,7 +40,7 @@
           <p class="hidden" id="meters"><%= resultsView.m %></p>
           <p class="hidden" id="miles"><%= resultsView.mi %></p>
           <p class="hidden" id="lightyears"><%= resultsView.au.toPrecision(2) %></p>
-          <p class="hidden" id="atlas"><%= resultsView.atlas %></p>
+          <p class="hidden" id="atlas"><%= parseFloat(resultsView.atlas.toFixed(0)) %></p>
           <p class="hidden" id="conventional-rocket"><%= parseFloat(resultsView.timeRocket.toFixed(2)) %></p>
           <p class="hidden" id="ion-rocket"><%= parseFloat(resultsView.timeIonRocket.toFixed(2)) %></p>
           <p class="hidden" id="walking"><%= parseFloat(resultsView.timeWalking.toFixed(2)) %></p>

@@ -24,11 +24,27 @@
           <form action="/results" method="POST">
             <fieldset>
               Choose a Date: <input type="Date" name="date" value="date" required>
-              Choose a Celestial Body: 
-              <select name="celestialBody">
+              Choose a Launch Point:
+              <select name="startCelestialBody">
+                  <option value="earth">Earth</option>
+                  <option value="sun">Sun</option>
+                  <option value="mercury">Mercury</option>
+                  <option value="venus"> Venus</option>
+                  <option value="moon">The Moon</option>
+                  <option value="mars"> Mars</option>
+                  <option value="jupiter"> Jupiter</option>
+                  <option value="saturn"> Saturn</option>
+                  <option value="uranus"> Uranus</option>
+                  <option value="neptune"> Neptune</option>
+                  <option value="pluto"> Pluto</option>
+                </select>
+              Choose a Destination: 
+              <select name="endCelestialBody">
                 <option value="sun">Sun</option>
                 <option value="mercury">Mercury</option>
                 <option value="venus"> Venus</option>
+                <option value="earth">Earth</option>
+                <option value="moon">The Moon</option>
                 <option value="mars"> Mars</option>
                 <option value="jupiter"> Jupiter</option>
                 <option value="saturn"> Saturn</option>
