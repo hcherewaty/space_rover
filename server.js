@@ -77,6 +77,7 @@ function getStartPoint(request, response){
 }
 function getEndPoint(request, response){
   let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.date}&bodies=${request.body.celestialBody}`
+  console.log(url)
 
   return superagent.get(url)
     .then(result => {
