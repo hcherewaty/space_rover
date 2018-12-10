@@ -57,8 +57,8 @@ let test;
 async function searchQuery(request, response){
   await getPlanet(request, response)
   const one = await calculateDistance(request, response);
-  
-  const measurement = new Conversion(one, test)
+  console.log(request.body)
+  const measurement = new Conversion(one, test.rows[0], request.body.startCelestialBody)
   console.log(measurement)
     response.render('pages/results', {resultsView: measurement})
 }
@@ -94,19 +94,19 @@ async function calculateDistance(request, response){
   return totalDistance;
 }
 
-function Conversion(measurement, arr) {
+function Conversion(measurement, arr, launch) {
   this.km = measurement;
   this.m = measurement * 1000;
   this.mi = measurement * 0.621371;
   this.au = measurement * 0.0000000000001057;
   this.atlas = (measurement * 39370.1) / 60;
-  this.launch = arr.rows[0].name
-  this.destination = arr.rows[1].name;
-  this.image = arr.rows[1].image;
-  this.general_environment = arr.rows[1].general_environment;
-  this.day_length = arr.rows[1].day_length;
-  this.random1 = arr.rows[1].random1;
-  this.random2 = arr.rows[1].random2;
+  this.launch = launch.toUpperCase();
+  this.destination = arr.name;
+  this.image = arr.image;
+  this.general_environment = arr.general_environment;
+  this.day_length = arr.day_length;
+  this.random1 = arr.random1;
+  this.random2 = arr.random2;
   this.timeRocket = (measurement / 57936.384) / 24;
   this.timeIonRocket = (measurement / 321868.8) / 24;
   this.timeWalking = (measurement / 4.02336) / 24;
@@ -128,10 +128,10 @@ function handleError (error, response) {
 }
 
 function getPlanet(request, response){
-  let SQL = `SELECT * FROM planet WHERE name='${request.body.endCelestialBody.toUpperCase()}' OR name='${request.body.startCelestialBody.toUpperCase()}';`;
+  let SQL = `SELECT * FROM planet WHERE name='${request.body.endCelestialBody.toUpperCase()}';`;
 
   client.query(SQL)
   .then(result => {
-    test = result
+    test = result 
   })
 }
