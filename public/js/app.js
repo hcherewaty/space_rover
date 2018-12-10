@@ -24,29 +24,29 @@ const fillSpeeds = () => {
   // }
 }
 
-let speeds = ['conventional rocket', 'VASIMR Ion Drive Engine', 'walking', 'dog walking', 'driving'];
+let speeds = ['Conventional Rocket', 'VASIMR Ion Drive Engine', 'Walking', 'Driving', 'Dog Walking'];
 
-let units = ['kilometers', 'meters', 'miles', 'light years', 'atlas'];
+let units = ['Kilometers', 'Meters', 'Miles', 'Light Years', 'Atlas the Dog, from Tail to Snoot'];
 
 $('#units').on('change', function () {
   let $selection = $(this).val();
-  if ($selection === 'kilometers') {
+  if ($selection === 'Kilometers') {
     let kilometers = $('#kilometers').text();
     $('#distance').text(kilometers);
   }
-  if ($selection === 'meters'){
+  if ($selection === 'Meters'){
     let meters = $('#meters').text();
     $('#distance').text(meters);
   }
-  if ($selection === 'miles'){
+  if ($selection === 'Miles'){
     let miles = $('#miles').text();
     $('#distance').text(miles);
   }
-  if ($selection === 'light years'){
+  if ($selection === 'Light Years'){
     let lightyears = $('#lightyears').text();
     $('#distance').text(lightyears);
   }
-  if ($selection === 'atlas'){
+  if ($selection === 'Atlas the Dog, from Tail to Snoot'){
     let atlas = $('#atlas').text();
     $('#distance').text(atlas);
   }
@@ -54,25 +54,25 @@ $('#units').on('change', function () {
 
 $('#speedmenu').on('change', function() {
   let $selection = $(this).val();
-  if ($selection === 'conventional rocket'){
+  if ($selection === 'Conventional Rocket'){
     let conventionalRocket = $('#conventional-rocket').text();
-    $('#time').text(conventionalRocket);
+    $('#time').text(`${conventionalRocket} days`);
   }
   if ($selection === 'VASIMR Ion Drive Engine'){
     let ionRocket = $('#ion-rocket').text();
-    $('#time').text(ionRocket);
+    $('#time').text(`${ionRocket} days`);
   }
-  if ($selection === 'walking'){
+  if ($selection === 'Walking'){
     let walking = $('#walking').text();
-    $('#time').text(walking);
+    $('#time').text(`${walking} days`);
   }
-  if ($selection === 'dog walking'){
+  if ($selection === 'Dog Walking'){
     let dogWalking = $('#dog-walking').text();
-    $('#time').text(dogWalking);
+    $('#time').text(`${dogWalking} days`);
   }
-  if ($selection === 'driving'){
+  if ($selection === 'Driving'){
     let driving = $('#driving').text();
-    $('#time').text(driving);
+    $('#time').text(`${driving} days`);
   }
 });
 

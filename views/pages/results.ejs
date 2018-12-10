@@ -17,30 +17,22 @@
           <form id="planetResults" action="/results" method="post">
           <input type="hidden" name="_method" value="put">          
           <input type="hidden" name="distance" value="<%= parseFloat(resultsView.km.toFixed(2)) %>">
+          <h3><%= resultsView.name %></h3>
             <fieldset>
-              Distance: <span id="distance"><%= resultsView.km %></span>
+              <p>Distance: <span id="distance"><%= resultsView.km %></span></p>
               <select id="units"></select>
-              <!-- <select name="units" id="units" onchange="this.form.submit()">Choose
-                <option value="km">Kilometers</option>
-                <option value="m">Meters</option>
-                <option value="mi">Miles</option>
-                <option value="au">Light Years</option>
-                <option value="atlas">Good Boy <i class="fas fa-dog"></i></option>
-              </select> -->
-              Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> </span>
+              <p>Travel Time:  <span id="time"> <%= parseFloat(resultsView.timeRocket.toFixed(2)) %> days</span></p>
               <select id="speedmenu"></select>
-                <h4><%= resultsView.name %></h4>
                 <div class='factsBox'>
-                  <h3>General Environment: </h3>  
+                  <h4>General Environment: </h4>  
                   <p><%= resultsView.general_environment %></p>
-                  <h3>Visiting: </h3>
+                  <h4>Length of a Year: </h4>
                   <p><%= resultsView.day_length %></p>
-                  <h3>Random Fact: </h3>
+                  <h4>More About <%= resultsView.name %>:</h4>
                   <p><%= resultsView.random1 %></p>
-                  <h3>Random Fact: </h3>
                   <p><%= resultsView.random2 %> </p>
                 </div>
-                <p id="NASAcredit"> Facts gathered from NASA api.</p>
+                <p id="NASAcredit"> Facts gathered from the NASA API.</p>
             </section>
             </fieldset>
           </form>

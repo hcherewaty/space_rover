@@ -1,7 +1,7 @@
 /* Home page */
 
 #hero img {
-  min-width: 600px;
+  min-width: 1100px;
   position: fixed;
   overflow: hidden;
   z-index: -1000;
@@ -91,22 +91,24 @@ form button {
 .planetImage {
   width: 100%;
   background-color: black;
+  padding-top: 50px;
+  padding-bottom: 3%;
 }
 
 div img {
-  margin-top: 4.5em;
-  margin-left: 20em;
-  margin-bottom: 4.5em;
-  width: 50%;
+  display: block;
+  margin: 6% auto 3% auto;
+  width: 100%;
 }
 
 .factsBox p {
   margin-bottom: 2em;
+  font-size: 1.5em;
 }
 
 #NASAcredit {
   margin-top: 3em;
-  font-size: .45em;
+  font-size: .5em;
 }
 
 #resultsPage {
@@ -119,4 +121,17 @@ div img {
 
 main {
   background: rgb(41, 41, 41);
+}
+
+fieldset p {
+  font-size: 1.75em;
+  margin: .75em auto;
+}
+
+#speedmenu{
+  margin-bottom: 4em;
+}
+
+#units{
+  margin-bottom: 2em;
 }
