@@ -18,7 +18,6 @@ app.use(methodOverride((request, response) => {
   if (request.body && typeof request.body === 'object' && '_method' in request.body) {
     // look in urlencoded POST bodies and delete it
     let method = request.body._method;
-    console.log('OVERRIDE THE METHOD as a ' +method)
     delete request.body._method;
     return method;
   }
@@ -57,9 +56,7 @@ let test;
 async function searchQuery(request, response){
   await getPlanet(request, response)
   const one = await calculateDistance(request, response);
-  console.log(request.body)
   const measurement = new Conversion(one, test.rows[0], request.body.startCelestialBody)
-  console.log(measurement)
     response.render('pages/results', {resultsView: measurement})
 }
 
