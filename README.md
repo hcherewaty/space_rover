@@ -1,10 +1,14 @@
 # space_rover
 
-http://www.spacerover.tech/
+Visit us here: http://www.spacerover.tech/
 
-## Project Info
+## Crew: Heather Cherewaty, Becca Lee, Siobhan Niess, and Michael Jahns.
+
+## Project Info & Problem Domain
 
 Space Rover is a mobile-first, educational website about space. As a user of Space Rover, you’ll be able to select a planet or other celestial body and a date, and see how far it is from earth or another celestial body at that specific moment in time. We'll also tell you how long it would take you to get there. Don’t want to see the distance in miles? That’s ok! You can also view the distance in kilometers or other units of measures (some of them cuter than others). Along with distance and travel time, the user will get to see an assortment of facts about the planet they’ve selected.
+
+## Version 1.0.0
 
 ## Technology Used:
 - JavaScript
@@ -29,6 +33,56 @@ Space Rover is a mobile-first, educational website about space. As a user of Spa
 - Error page message photo courtesy of Gravity (the movie)
 - Google fonts
 - Font awesome
+
+## Astro-phys.com Ephemeris API - Endpoint: http://www.astro-phys.com/api
+
+{
+  "date": 2086326.5,
+  "unit": "km",
+  "results": {
+    "mars": [
+      [
+        -168045229.22750974, // X Position
+        164411532.9003423,   // Y Position
+        80245103.26520184    // Z Position
+      ],
+      [
+        -1449448.751232047,  // X Velocity
+        -1150179.7595137728, // Y Velocity
+        -484397.75425069826  // Z Velocity
+      ]
+    ]
+  }
+}
+
+## NASA APOD API - Endpoint: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+
+{"date":"2018-12-11","explanation":"Why does this galaxy have such a long tail?   In this stunning vista, based on image data from the Hubble Legacy Archive, distant galaxies form a dramatic backdrop for disrupted spiral galaxy Arp 188, the Tadpole Galaxy. The cosmic tadpole is a mere 420 million light-years distant toward the northern constellation of the Dragon (Draco). Its eye-catching tail is about 280 thousand light-years long and features massive, bright blue star clusters. One story goes that a more compact intruder galaxy crossed in front of Arp 188 - from right to left in this view - and was slung around behind the Tadpole by their gravitational attraction. During the close encounter, tidal forces drew out the spiral galaxy's stars, gas, and dust forming the spectacular tail. The intruder galaxy itself, estimated to lie about 300 thousand light-years behind the Tadpole, can be seen through foreground spiral arms at the upper right. Following its terrestrial namesake, the Tadpole Galaxy will likely lose its tail as it grows older, the tail's star clusters forming smaller satellites of the large spiral galaxy.   New: Instagram page features cool images recently submitted to APOD","hdurl":"https://apod.nasa.gov/apod/image/1812/Arp188Tadpole_HubbleMarquez_1150.jpg","media_type":"image","service_version":"v1","title":"Arp 188 and the Tadpole's Tail","url":"https://apod.nasa.gov/apod/image/1812/Arp188Tadpole_HubbleMarquez_960.jpg"}
+
+## Database Schemas
+
+## devSchema:
+CREATE TABLE devs (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(500),
+    image_url VARCHAR(500),
+    bio VARCHAR(1500),
+    email VARCHAR(500),
+    github VARCHAR(500),
+    twitter VARCHAR(500),
+    linkedin VARCHAR(500)
+);
+
+## planetSchema:
+CREATE TABLE planet (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  image VARCHAR(255),
+  general_environment VARCHAR(15000),
+  day_length VARCHAR(255),
+  random1 VARCHAR(1500),
+  random2 VARCHAR(1500)
+);
 
 ## User Stories
 As a ____, I want ____ so that ____.
