@@ -82,6 +82,14 @@ ul {
   font-size: 4em;
 }
 
+.astronauts a {
+  color: white;
+}
+
+.astronauts a:hover {
+  color: red;
+}
+
 
 /* Tablet view */
 @media screen and (max-width: 800px) and (min-width: 480px){
