@@ -70,7 +70,7 @@ function getStartPoint(request, response){
       const startPoint = new Triangulate(result.body.results[request.body.startCelestialBody.toLowerCase()][0], request.body.startCelestialBody)
       return startPoint
     })
-    .catch(error => handleError(error));
+    .catch(error => handleError(error, response));
 }
 function getEndPoint(request, response){
   let url = `http://www.astro-phys.com/api/de406/states?date=${request.body.date}&bodies=${request.body.endCelestialBody}`
@@ -80,7 +80,7 @@ function getEndPoint(request, response){
       const endPoint = new Triangulate(result.body.results[request.body.endCelestialBody.toLowerCase()][0], request.body.endCelestialBody)
       return endPoint
     })
-    .catch(error => handleError(error));
+    .catch(error => handleError(error, response));
 }
 async function calculateDistance(request, response){
   const startPoint = await getStartPoint(request, response);
@@ -118,14 +118,8 @@ function getDevs(request, response){
 
   return client.query(SQL)
     .then(result => response.render('pages/about', {resultAbout: result.rows}))
-    .catch(handleError);
+    .catch(error => handleError(error, response));
 }
-
-function handleError (error, response) {
-  app.get('/error')
-  response.render('pages/error', {error: error});
-}
-
 function getPlanet(request, response){
   let SQL = `SELECT * FROM planet WHERE name='${request.body.endCelestialBody.toUpperCase()}';`;
 
@@ -133,4 +127,11 @@ function getPlanet(request, response){
   .then(result => {
     test = result 
   })
+  .catch(error => handleError(error, response));
 }
+
+function handleError (error, response) {
+  console.error(error)
+  response.render('pages/error', {error: error});
+}
+
