@@ -46,7 +46,7 @@ $('#units').on('change', function () {
     let lightyears = $('#lightyears').text();
     $('#distance').text(lightyears);
   }
-  if ($selection === 'Atlas the Dog, from Tail to Snoot'){
+  if ($selection === 'Atlas the Dog (Tail to Snoot)'){
     let atlas = $('#atlas').text();
     $('#distance').text(atlas);
   }
