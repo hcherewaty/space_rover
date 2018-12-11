@@ -38,6 +38,8 @@ app.post('/results', searchQuery);
 
 app.get('/about', getDevs);
 
+app.get('/error', handleError);
+
 function getImageOfTheDay(request, response) {
   let url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_IOD_API_KEY}`
 
