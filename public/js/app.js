@@ -26,7 +26,7 @@ const fillSpeeds = () => {
 
 let speeds = ['Conventional Rocket', 'VASIMR Ion Drive Engine', 'Walking', 'Driving', 'Dog Walking'];
 
-let units = ['Kilometers', 'Meters', 'Miles', 'Light Years', 'Atlas the Dog, from Tail to Snoot'];
+let units = ['Kilometers', 'Meters', 'Miles', 'Light Years', 'Atlas the Dog (Tail to Snoot)'];
 
 $('#units').on('change', function () {
   let $selection = $(this).val();
