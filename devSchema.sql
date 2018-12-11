@@ -13,7 +13,6 @@ CREATE TABLE devs (
     linkedin VARCHAR(500)
 );
 
-https://github.com/hcherewaty/space_rover/tree/about-styling
 INSERT INTO devs (name, image_url, bio, email, github, twitter, linkedin)
 VALUES('Michael Jahns', '/styles/images/michael_jahns.png', 'Michael is a software developer with a background in teaching and science. He decided to become a software developer while he was working on malaria research in Liberia during his time with the Peace Corps. He found the tools available limited and unaccessible, and knew they could be better. Michael enjoys creating apps that have a deliberate purpose and help produce tangible results. He loves that programming gives him a greater capacity to affect change and that he gets to have fun solving puzzles while he''s at it.', 'Jahnsmic001@gmail.com', 'https://github.com/MichaelJahns', '#','https://www.linkedin.com/in/michaelcjahns/' );
 
