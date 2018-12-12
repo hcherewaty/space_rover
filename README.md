@@ -18,6 +18,7 @@ Space Rover is a mobile-first, educational website about space. As a user of Spa
 - SQL
 - Express
 - Postgres
+- EJS
 - CORS
 - Superagent
 - Method-override
